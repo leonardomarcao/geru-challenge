@@ -1,6 +1,6 @@
 import unittest
 import transaction
-
+from datetime import datetime
 from pyramid import testing
 
 
@@ -45,9 +45,9 @@ class TestMyViewSuccessCondition(BaseTest):
         super(TestMyViewSuccessCondition, self).setUp()
         self.init_database()
 
-        from .models import MyModel
+        from .models import Session
 
-        model = MyModel(name='one', value=55)
+        model = Session(session_id='123456', date_access=datetime.now())
         self.session.add(model)
 
     def test_passing_view(self):

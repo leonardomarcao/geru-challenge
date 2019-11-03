@@ -12,8 +12,6 @@ from .meta import Base
 class Session(Base):
     __tablename__ = 'session'
     id = Column(Integer, primary_key=True)
-    session_id = Column(Text)
-    date_access = Column(DateTime)
+    date_accessed = Column(DateTime)
+    page_accessed = Column(Text)
 
-
-Index('session_id_idx', Session.session_id, unique=True, mysql_length=255)

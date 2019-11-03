@@ -2,16 +2,29 @@ from pyramid.response import Response
 from pyramid.view import view_config
 from sqlalchemy.exc import DBAPIError
 from ..models import Session
+from quote_library.modules.quote_api import Quote
+from datetime import datetime
 
 
 @view_config(route_name='home', renderer='../templates/home.jinja2')
 def home(request):
+    save_session(request)
+    return {'welcome_message': 'Bem vindo, Desafio Web 1.0'}
+
+
+@view_config(route_name='quotes', renderer='../templates/quotes.jinja2')
+def quote(request):
+    save_session(request)
+    return {'quotes': Quote.get_quotes()}
+
+
+def save_session(request):
     try:
-        query = request.dbsession.query(Session)
-        one = query.first()
+        session = Session(date_accessed=datetime.utcfromtimestamp(request.session.accessed),
+                          page_accessed=request.application_url)
+        request.dbsession.add(session)
     except DBAPIError:
         return Response(db_err_msg, content_type='text/plain', status=500)
-    return {'one': one, 'project': 'guruchallenge'}
 
 
 db_err_msg = """\
@@ -29,3 +42,4 @@ might be caused by one of the following things:
 After you fix the problem, please restart the Pyramid application to
 try it again.
 """
+

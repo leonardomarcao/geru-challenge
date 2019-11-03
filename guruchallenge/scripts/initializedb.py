@@ -42,5 +42,3 @@ def main(argv=sys.argv):
     with transaction.manager:
         dbsession = get_tm_session(session_factory, transaction.manager)
 
-        session = Session(session_id='123456789', date_access=datetime.now())
-        dbsession.add(session)

@@ -1,0 +1,11 @@
+{% extends "layout.jinja2" %}
+{% block content %}
+<div class="content">
+      <h1 class="mt-5">Desafio Web 1.0</h1>
+    <ul>
+        {% for quote in quotes %}
+            <li>{{ quote }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock content %}

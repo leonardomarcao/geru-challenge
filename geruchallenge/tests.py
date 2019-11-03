@@ -54,7 +54,7 @@ class BaseTest(unittest.TestCase):
         from .views.default import home
         info = home(dummy_request(self.session))
         self.assertEqual(info['one'].name, 'one')
-        self.assertEqual(info['project'], 'guruchallenge')
+        self.assertEqual(info['project'], 'geruchallenge')
 """
 
 

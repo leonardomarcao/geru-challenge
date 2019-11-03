@@ -17,7 +17,8 @@ requires = [
     'transaction',
     'zope.sqlalchemy',
     'waitress',
-    'requests'
+    'requests',
+    'cornice'
 ]
 
 tests_require = [
@@ -26,9 +27,9 @@ tests_require = [
     'pytest-cov',
     ]
 
-setup(name='guruchallenge',
+setup(name='geruchallenge',
       version='0.0',
-      description='guruchallenge',
+      description='geruchallenge',
       long_description=README + '\n\n' + CHANGES,
       classifiers=[
           "Programming Language :: Python",
@@ -49,8 +50,8 @@ setup(name='guruchallenge',
       install_requires=requires,
       entry_points="""\
       [paste.app_factory]
-      main = guruchallenge:main
+      main = geruchallenge:main
       [console_scripts]
-      initialize_guruchallenge_db = guruchallenge.scripts.initializedb:main
+      initialize_geruchallenge_db = geruchallenge.scripts.initializedb:main
       """,
       )

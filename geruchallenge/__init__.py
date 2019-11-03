@@ -12,5 +12,5 @@ def main(global_config, **settings):
     config.include('.models')
     config.include('.routes')
     config.include("cornice")
-    config.scan("guruchallenge.views")
+    config.scan("geruchallenge.views")
     return config.make_wsgi_app()

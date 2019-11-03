@@ -71,7 +71,7 @@ db_err_msg = """\
 Pyramid is having a problem using your SQL database.  The problem
 might be caused by one of the following things:
 
-1.  You may need to run the "initialize_guruchallenge_db" script
+1.  You may need to run the "initialize_geruchallenge_db" script
     to initialize your database tables.  Check your virtual
     environment's "bin" directory for this script and try to run it.
 

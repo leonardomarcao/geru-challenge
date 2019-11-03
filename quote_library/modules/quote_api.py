@@ -25,7 +25,7 @@ class Quote(_QuoteAPI):
                     try:
                         quote_number = int(kwargs['quote_number'])
                         try:
-                            return json.loads(req.text)['quotes'][quote_number]
+                            return str(json.loads(req.text)['quotes'][quote_number])
                         except IndexError as e:
                             print('Ops! A quote which one are you trying to get does not exist.')
                     except KeyError as e:

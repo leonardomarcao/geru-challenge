@@ -2,9 +2,7 @@
 {% block content %}
 <div class="content">
     <ul>
-        {% for quote in quotes %}
-            <li>{{ quote }} - <a href="{{ loop.index0 }}">View</a></li>
-        {% endfor %}
+        <li>{{ quotes }}</li>
     </ul>
     <a href="javascript:history.back()">Back</a>
 </div>

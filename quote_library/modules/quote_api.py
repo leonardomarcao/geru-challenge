@@ -26,17 +26,23 @@ class Quote(object):
         self.quote = None
 
     def get_quotes(self, **kwargs):
-        if not kwargs:
-            list_quotes = []
+        try:
             req = requests.get(self.quote_api.api_url)
             if req.status_code == 200:
-                self.quote = [quote for quote in json.loads(req.text)['quotes']]
-        else:
-            try:
-                quote_number = kwargs['quote_number']
-                return json.loads(requests.get(self.quote_api.api_url, params=dict(quote_number)).text)
-            except ValueError as e:
-                print('You maybe pass argument called quote_number')
+                if not kwargs:
+                    list_quotes = []
+                    self.quote = [quote for quote in json.loads(req.text)['quotes']]
+                else:
+                    try:
+                        quote_number = int(kwargs['quote_number'])
+                        try:
+                            self.quote = json.loads(req.text)['quotes'][quote_number]
+                        except IndexError as e:
+                            print('Ops! A quote which one are you trying to get does not exist.')
+                    except KeyError as e:
+                        print('Ops! You maybe pass argument called quote_number.')
+        except requests.exceptions.RequestException as e:
+            print(e)
 
     @property
     def quote(self):

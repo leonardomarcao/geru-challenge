@@ -4,8 +4,8 @@ from sqlalchemy.exc import DBAPIError
 from ..models import Session
 
 
-@view_config(route_name='home', renderer='../templates/mytemplate.jinja2')
-def my_view(request):
+@view_config(route_name='home', renderer='../templates/home.jinja2')
+def home(request):
     try:
         query = request.dbsession.query(Session)
         one = query.first()

@@ -4,6 +4,8 @@
 Getting Started
 ---------------
 
+** Setup project
+
 - cd <directory containing this file>
 
 - $VENV/bin/pip install -e .

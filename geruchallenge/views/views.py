@@ -31,6 +31,15 @@ def quote1(request):
         raise exc.exception_response(404)
 
 
+@view_config(route_name='quotes2', renderer='../templates/quote.jinja2')
+def quote2(request):
+    save_session(request)
+    try:
+        return {'quotes': Quote.get_quotes(random=True)}
+    except ValueError as e:
+        raise exc.exception_response(404)
+
+
 def save_session(request):
     try:
         session = Session(date_accessed=datetime.utcfromtimestamp(request.session.accessed),

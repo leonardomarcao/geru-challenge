@@ -4,7 +4,7 @@
 Getting Started
 ---------------
 
-** Setup project
+## Setup project
 
 - cd <directory containing this file>
 

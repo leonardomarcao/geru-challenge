@@ -38,29 +38,3 @@ class BaseTest(unittest.TestCase):
         transaction.abort()
         Base.metadata.drop_all(self.engine)
 
-
-"""class TestMyViewSuccessCondition(BaseTest):
-
-    def setUp(self):
-        super(TestMyViewSuccessCondition, self).setUp()
-        self.init_database()
-
-        from .models import Session
-
-        model = Session(session_id='123456', date_access=datetime.now())
-        self.session.add(model)
-
-    def test_passing_view(self):
-        from .views.default import home
-        info = home(dummy_request(self.session))
-        self.assertEqual(info['one'].name, 'one')
-        self.assertEqual(info['project'], 'geruchallenge')
-"""
-
-
-"""class TestMyViewFailureCondition(BaseTest):
-
-    def test_failing_view(self):
-        from .views.default import home
-        info = home(dummy_request(self.session))
-        self.assertEqual(info.status_int, 500)"""
